@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "start": "set PORT=8093&&roadhog server",
+        "start": "set PORT=8090&&roadhog server",
         "build": "roadhog build"
     },
     "engines": {
@@ -12,6 +12,7 @@
         "babel-runtime": "^6.9.2",
         "dva": "^1.2.1",
         "http-proxy-middleware": "^0.17.4",
+        "rc-tween-one": "^1.4.4",
         "react": "^15.4.0",
         "react-dom": "^15.4.0"
     },

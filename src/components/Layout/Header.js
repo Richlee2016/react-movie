@@ -11,24 +11,14 @@ const Header = ({ navs, logins, navJump }) => {
     </li>
   );
 
-  // 登录栏
-  const login = logins.map(o =>
-    <li key={o.name}>
-      <i className={`iconfont icon-${o.name}`} />
-    </li>
-  );
-
   return (
     <div className={less.header}>
       <div className={less.headBox}>
         <ul className={less.navs}>
           {nav}
         </ul>
-        <ul className={less.load}>
-          {login}
-        </ul>
+        <LoginBox logins={logins} />
       </div>
-      <LoginBox />
     </div>
   );
 };

@@ -4,10 +4,9 @@ import { routerRedux } from "dva/router";
 import PropTypes from "prop-types";
 import less from "./IndexPage.less";
 import bannerImg from "../assets/images/test.jpg";
-import Header from "../components/Layout/Header";
-import Search from "../components/Layout/Search";
+import { Header, Navs, Search } from "../components/Layout";
 function IndexPage({ dispatch, children, app }) {
-  const { navs, logins } = app;
+  const { menus, logins,navs } = app;
   // 平常跳转
   const pageJump = href => () => {
     dispatch(
@@ -21,20 +20,21 @@ function IndexPage({ dispatch, children, app }) {
     dispatch(
       routerRedux.push({
         pathname: `/search`,
-        query:{s:encodeURI(val),p:1}
+        query: { s: encodeURI(val), p: 1 }
       })
     );
   };
 
   return (
     <div className={less.container}>
-      <Header navs={navs} logins={logins} navJump={pageJump} />
+      <Header menus={menus} logins={logins} navJump={pageJump} />
       <div
         className={less.banner}
         style={{ background: `url(${bannerImg})` }}
       />
       <Search rankJump={pageJump("ranks")} search={searchHandle} />
       <div className={less.main}>
+        <Navs navs={navs} />
         {children}
       </div>
     </div>

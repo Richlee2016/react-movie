@@ -4,5 +4,5 @@ let reqApi = '/api/v0/movies'
 
 //获取列表
 export async function list(payload) {
-  return getAxios('GET',reqApi,payload);
+  return request('GET',reqApi,payload);
 }

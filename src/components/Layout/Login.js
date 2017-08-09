@@ -1,43 +1,46 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./layout.less";
-import TweenOne from 'rc-tween-one';
+import QueueAnim from "rc-queue-anim";
 
 class Login extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      show: true
+      show: false
     };
-    this.animation = { scale: 1, yoyo: true, repeat: 0, duration: 1000 };
   }
   // 关闭
-  closeLogin = () => { this.setState({ ...this.state, show: false }) };
+  closeLogin = () => {
+    this.setState({ ...this.state, show: false });
+  };
   // 打开
-  openLogin = (type) => {
+  openLogin = type => {
     this.setState({ ...this.state, show: true });
     switch (type) {
       case 1:
-
         break;
       case 2:
-
         break;
       case 3:
-
         break;
     }
-  }
+  };
   render() {
     const login = this.props.logins.map(o =>
-      <li key={o.name} onClick={() => { this.openLogin(o.handle) }}>
+      <li
+        key={o.name}
+        onClick={() => {
+          this.openLogin(o.handle);
+        }}
+      >
         <i className={`iconfont icon-${o.name}`} />
       </li>
     );
 
     return (
       <div className={less.load}>
-        <ul >
+        <ul>
           {login}
         </ul>
         <div
@@ -45,14 +48,11 @@ class Login extends React.Component {
           style={{ display: this.state.show ? "flex" : "none" }}
           onClick={this.closeLogin}
         >
-          <div className={less.loginbox}>
-            <TweenOne
-              animation={this.animation}
-              paused={this.props.paused}
-              style={{ transform: 'scale(0)' }}
-              className={less.shape}
-            />
-          </div>
+          <QueueAnim type={["scale"]} ease={["easeOutQuart"]}>
+            {this.state.show
+              ? [<div className={less.loginbox} key="a" />]
+              : null}
+          </QueueAnim>
         </div>
       </div>
     );

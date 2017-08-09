@@ -24,6 +24,7 @@ function RouterConfig({ history, app }) {
           path:"home",
           getComponent (nextState, cb) {
             require.ensure([], require => {
+              registerModel(app, require('./models/home.js'));
               cb(null, require('./routes/Home'))
             }, 'home')
           }

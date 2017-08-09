@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import LoginBox from "./Login";
 import less from "./layout.less";
 
-const Header = ({ navs, logins, navJump }) => {
+const Header = ({ menus, logins, navJump }) => {
   // 菜单栏
-  const nav = navs.map(o =>
+  const menu = menus.map(o =>
     <li key={o.name} onClick={navJump(o.href)}>
       {o.name}
     </li>
@@ -14,8 +14,8 @@ const Header = ({ navs, logins, navJump }) => {
   return (
     <div className={less.header}>
       <div className={less.headBox}>
-        <ul className={less.navs}>
-          {nav}
+        <ul className={less.menus}>
+          {menu}
         </ul>
         <LoginBox logins={logins} />
       </div>
@@ -24,7 +24,7 @@ const Header = ({ navs, logins, navJump }) => {
 };
 
 Header.propTypes = {
-  navs: PropTypes.array,
+  menus: PropTypes.array,
   logins: PropTypes.array,
   navJump: PropTypes.func
 };

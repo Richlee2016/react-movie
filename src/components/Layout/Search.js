@@ -16,6 +16,12 @@ class Search extends React.Component {
       searchValue: e.target.value
     });
   };
+  // 进行搜索
+  letSearch = () => {
+    if (this.state.searchValue) {
+      this.props.search(this.state.searchValue)();
+    }
+  };
 
   render() {
     return (
@@ -24,7 +30,7 @@ class Search extends React.Component {
           <input placeholder="影片名/明星/导演" onChange={this.setSearchValue} />
           <i
             className={"iconfont icon-sousuo"}
-            onClick={this.props.search(this.state.searchValue)}
+            onClick={this.letSearch}
           />
         </div>
         <div className={less.rank} onClick={this.props.rankJump}>

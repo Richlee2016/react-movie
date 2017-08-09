@@ -16,7 +16,7 @@ export default {
   },
   effects: {
     *getSearch({payload:{s,p}}, { put, call }) {
-      console.log(s,p,'search is working');
+      // console.log(s,p,'search is working');
       // console.log(payload);
       // let search = yield call(service.list,payload);
       // // 获取 search 查询数据

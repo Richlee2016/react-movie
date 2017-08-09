@@ -1,21 +1,33 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./layout.less";
+import TweenOne from 'rc-tween-one';
 
 class Navs extends React.Component {
   constructor(props) {
     super();
-    this.state = {};
+    this.state = {
+      active:0,
+      animation:{ left:'0%', duration: 400 }
+    };
   }
+
+  navGo(i){
+    this.setState({
+      ...this.state,
+      active:i,
+      animation:{ left: (80/13)*i + '0%', duration: 400 }
+    })
+  }
+  
 
   render() {
     const { navs } = this.props;
-    console.log(navs);
-    const nav = navs.map(o => {
+    const nav = navs.map((o,i) => {
       return (
-        <li key={o.name}>
+        <li key={o.name} onClick={() => {this.navGo(i)}}>
           <span>10</span>
-          <label>{o.name}</label>
+          <label style={{color:this.state.active === i?'#00a1d6':'initial'}}>{o.name}</label>
         </li>
       );
     });
@@ -23,8 +35,12 @@ class Navs extends React.Component {
     return (
       <div className={less.navs}>
         <ul className={less.nav}>
-        {nav}
+          {nav}
         </ul>
+        <TweenOne
+          animation={this.state.animation}
+          className={less.navGo}
+        />
         <ul className={less.subnav} />
       </div>
     );

@@ -123,10 +123,14 @@
     width: 100%;
     height:60px;
     border-bottom: 1px solid #e5e9ef;
+    position: relative;
     ul{
         height:60px;
         display: flex;
         width: 80%
+    }
+    li:hover li label{
+        color: #00a1d6;
     }
     li{
         flex: 1;
@@ -144,5 +148,13 @@
             width: 100%;
             line-height: 30px;
         }
+    }
+    
+    .navGo{
+        position: absolute;
+        bottom: 0px;
+        width: 73px;
+        height: 2px;
+        background:#00a1d6;
     }
 }

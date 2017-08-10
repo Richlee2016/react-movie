@@ -32,9 +32,9 @@ export default {
   },
   subscriptions: {
     init({ dispatch }) {
-      dispatch({
-        type:'getData'
-      });
+      // dispatch({
+      //   type:'getData'
+      // });
     }
   }
 };

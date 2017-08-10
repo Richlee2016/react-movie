@@ -18,6 +18,7 @@ export default {
     ],
     // 赛选菜单栏
     navs: [
+      { name: "全部", type: 3 },
       { name: "动作片", type: 1 },
       { name: "喜剧片", type: 1 },
       { name: "爱情片", type: 1 },

@@ -1,19 +1,24 @@
 import React from "react";
 import { connect } from "dva";
 import less from "./Home.less";
-function Home() {
- 
+import { BlockOne, BlockTwo } from "../../components/Movieblock";
+function Home({ homeData }) {
+  const { newest, movie, teleplay, cartoon } = homeData;
   return (
     <div className={less.indexBox}>
-        index
+      <BlockOne data={newest || []} />
+      <BlockTwo data={movie || []} />
     </div>
   );
 }
 
 Home.propTypes = {};
 
-function mapStateToProps(state) {
-  return {}
+function mapStateToProps({ home }) {
+  const { homeData } = home;
+  return {
+    homeData
+  };
 }
 
 export default connect(mapStateToProps)(Home);

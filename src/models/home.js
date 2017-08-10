@@ -4,13 +4,13 @@ import {splarr,cutarr} from '../utils'
 export default {
   namespace: "home",
   state: {
-    indexData:{}
+    homeData:{}
   },
   reducers: {
-    setData(state,{payload:indexData}){
+    setData(state,{payload:homeData}){
       return {
         ...state,
-        indexData
+        homeData
       }
     }
   },
@@ -31,10 +31,10 @@ export default {
     }
   },
   subscriptions: {
-    init({ dispatch }) {
-      // dispatch({
-      //   type:'getData'
-      // });
+    init({ dispatch}) {
+      dispatch({
+        type:'getData'
+      });
     }
   }
 };

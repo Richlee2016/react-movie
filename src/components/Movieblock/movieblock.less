@@ -56,27 +56,35 @@
   }
 }
 
-.blockBoxTwo{
+.blockBoxTwo {
   width: 100%;
   display: flex;
   flex-direction: column;
-  li{
+  li {
     flex: 1;
+    em,
+    img,
+    span {
+      float: left;
+    }
+    img {
+      width: 50px;
+    }
   }
 }
 
 .blockTwo {
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   > div {
     height: 450px;
   }
   .boxOne {
-    float: left;
+    float: right;
     width: 840px;
   }
   .boxTwo {
-    float: right;
+    float: left;
     width: 340px;
   }
 }
@@ -99,4 +107,13 @@
       flex: 1;
     }
   }
+}
+
+.blockVideo{
+  overflow: hidden;
+  position: relative;
+  width: 340px;
+  height: 450px;
+  float: left;
+  border-radius: 4px;
 }

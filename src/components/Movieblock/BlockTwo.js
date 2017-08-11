@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./movieblock.less";
 import BlockBoxOne from './components/BlockBoxOne'
-import BlockBoxTwo from './components/BlockBoxTwo'
+import BlockVideo from './components/BlockVideo'
 import BlockHeader from './components/BlockHeader'
 class BlockTwo extends React.Component{
 
@@ -21,26 +21,15 @@ class BlockTwo extends React.Component{
     }
 
     render(){
-      let {data} = this.props;
+      let {data:{one,two}} = this.props;
       let {active} = this.state;
-      const groupOne = data.slice(0,8);
-      const groupTwo = data.slice(8,9);
-      const oneGroups = groupOne.map((o,i) => {
+      const oneGroups = one.map((o,i) => {
         return (
           <div key={i} style={{display:active === i?"block":"none"}}>
             <BlockBoxOne data={o} />
           </div>
         )
       });
-
-      const twoGroups = groupTwo.map((o,i) => {
-        return (
-          <div key={i} style={{display:active === i?"block":"none"}}>
-            <BlockBoxTwo data={o}/>
-          </div>
-        )
-      });
-
 
       return (
         <div className={less.blockTwo}>
@@ -49,7 +38,8 @@ class BlockTwo extends React.Component{
             {oneGroups}
           </div>
           <div className={less.boxTwo}>
-            {twoGroups}
+            <BlockHeader />
+            <BlockVideo />
           </div>
         </div>
       )

@@ -7,18 +7,17 @@ import BlockBanner from './components/BlockBanner'
 
 const BlockOne = ({ data }) => {
   // banner
-  const bannerImg = data.slice(0, 4);
-  const boxOne = data.slice(4,14)
+  const {one,two} = data;
   return (
     <div className={less.blockOne}>
-      <BlockBanner data={bannerImg} />
-      <BlockBoxOne data={boxOne} />
+      <BlockBanner data={one} />
+      <BlockBoxOne data={two} />
     </div>
   );
 };
 
 BlockOne.propTypes = {
-  data:PropTypes.array
+  data:PropTypes.object
 };
 
 export default BlockOne;
